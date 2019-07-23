@@ -13,7 +13,7 @@
                 android:id="@+id/tabs_home"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:tabMode="fixed"
+                app:tabMode="scrollable"
                 android:layout_marginTop="@dimen/margin_small"
                 app:tabGravity="fill"/>
     </com.google.android.material.appbar.AppBarLayout>
