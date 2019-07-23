@@ -5,34 +5,41 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
 import edu.stts.apotek_kotlin.R
+import edu.stts.apotek_kotlin.menu.HomeFragment
+import edu.stts.apotek_kotlin.menu.KeranjangFragment
+import edu.stts.apotek_kotlin.menu.ProfileFragment
 
 class HomeActivity : AppCompatActivity() {
 
-    private lateinit var textMessage: TextView
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
-                textMessage.setText(R.string.title_home)
+                presenter.changeFragment(supportFragmentManager,HomeFragment(),R.id.frame_main)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_dashboard -> {
-                textMessage.setText(R.string.title_dashboard)
+                presenter.changeFragment(supportFragmentManager,KeranjangFragment(),R.id.frame_main)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {
-                textMessage.setText(R.string.title_notifications)
+                presenter.changeFragment(supportFragmentManager,ProfileFragment(),R.id.frame_main)
                 return@OnNavigationItemSelectedListener true
             }
         }
         false
     }
 
+    private lateinit var presenter:HomePresenter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
-        textMessage = findViewById(R.id.message)
+        presenter = HomePresenter()
+
+        presenter.changeFragment(supportFragmentManager,HomeFragment(),R.id.frame_main)
+
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
     }
+
 }
