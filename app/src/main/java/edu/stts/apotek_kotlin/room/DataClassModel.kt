@@ -43,7 +43,6 @@ class DataClassModel {
         @ColumnInfo(name = "idKemasan") val idKemasan: String?,
         @ColumnInfo(name = "berat") val berat: String?,
         @ColumnInfo(name = "lokasi/rak") val lokasi: String?
-
     )
 
     @Entity
