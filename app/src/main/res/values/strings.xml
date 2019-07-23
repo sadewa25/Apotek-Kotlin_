@@ -20,4 +20,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_produk">Produk</string>
+    <string name="title_kategori">Kategori</string>
+    <string name="title_form_k3">Kemasan</string>
+    <string name="title_kemasan">Kemasan</string>
+    <string name="title_lokasirak">Lokasi Rak</string>
+    <string name="title_principal">Principal</string>
+    <string name="title_supplier">Supplier</string>
 </resources>
