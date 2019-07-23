@@ -4,8 +4,9 @@ import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import edu.stts.apotek_kotlin.R
-import edu.stts.apotek_kotlin.menu.home.HomeFragment
+import edu.stts.apotek_kotlin.menu.masters.MastersFragment
 import edu.stts.apotek_kotlin.menu.KeranjangFragment
+import edu.stts.apotek_kotlin.menu.HomeFragFragment
 import edu.stts.apotek_kotlin.menu.ProfileFragment
 
 class HomeActivity : AppCompatActivity() {
@@ -13,7 +14,7 @@ class HomeActivity : AppCompatActivity() {
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
-                presenter.changeFragment(supportFragmentManager, HomeFragment(),R.id.frame_main)
+                presenter.changeFragment(supportFragmentManager, HomeFragFragment(),R.id.frame_main)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_dashboard -> {
@@ -22,6 +23,10 @@ class HomeActivity : AppCompatActivity() {
             }
             R.id.navigation_notifications -> {
                 presenter.changeFragment(supportFragmentManager,ProfileFragment(),R.id.frame_main)
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.navigation_master -> {
+                presenter.changeFragment(supportFragmentManager,MastersFragment(),R.id.frame_main)
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -36,7 +41,7 @@ class HomeActivity : AppCompatActivity() {
 
         presenter = HomePresenter()
 
-        presenter.changeFragment(supportFragmentManager, HomeFragment(),R.id.frame_main)
+        presenter.changeFragment(supportFragmentManager, MastersFragment(),R.id.frame_main)
 
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
     }

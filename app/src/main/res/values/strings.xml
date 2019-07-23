@@ -27,4 +27,5 @@
     <string name="title_lokasirak">Lokasi Rak</string>
     <string name="title_principal">Principal</string>
     <string name="title_supplier">Supplier</string>
+    <string name="title_master">Master</string>
 </resources>

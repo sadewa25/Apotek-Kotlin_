@@ -1,4 +1,4 @@
-package edu.stts.apotek_kotlin.menu.home
+package edu.stts.apotek_kotlin.menu.masters
 
 
 import android.os.Bundle
@@ -13,15 +13,15 @@ import edu.stts.apotek_kotlin.R
 import org.jetbrains.anko.find
 
 
-class HomeFragment : Fragment() {
+class MastersFragment : Fragment() {
 
-    private lateinit var presenter: HomeFragPresenter
+    private lateinit var presenter: MastersPresenter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
-        presenter = HomeFragPresenter(context!!)
+        presenter = MastersPresenter(context!!)
 
         val pager: ViewPager = view.find(R.id.viewpager_home)
         val tabs: TabLayout = view.find(R.id.tabs_home)
