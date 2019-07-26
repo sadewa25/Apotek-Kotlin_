@@ -20,7 +20,7 @@ class DetailSupplierPresenter(val context: Context, val client:APIClient, val vi
 
             override fun onResponse(call: Call<ResponseJSON>, response: Response<ResponseJSON>) {
                 if (response.body() != null){
-                    view.getDataKota(response.body()!!.data as ArrayList<ResultItem>)
+                    view.getDataKota(response.body()!!.data?.result as ArrayList<ResultItem>)
                 }
             }
 
