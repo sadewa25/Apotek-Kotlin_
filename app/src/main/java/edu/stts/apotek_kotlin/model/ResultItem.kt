@@ -32,5 +32,9 @@ data class ResultItem(
 	val idSupplier: String? = null,
 
 	@field:SerializedName("email")
-	val email: String? = null
+	val email: String? = null,
+
+	@field:SerializedName("id_category")
+	val idCategory: String? = null
+
 )
