@@ -14,7 +14,7 @@ class DetailSupplierPresenter(val context: Context, val client:APIClient, val vi
     fun getKota(){
         client.getDataKota().enqueue(object : Callback<ResponseJSON>{
             override fun onFailure(call: Call<ResponseJSON>, t: Throwable) {
-                context?.toast("Error Koneksi")
+                context?.toast("Error Koneksi : ${t.message}")
             }
 
             override fun onResponse(call: Call<ResponseJSON>, response: Response<ResponseJSON>) {
