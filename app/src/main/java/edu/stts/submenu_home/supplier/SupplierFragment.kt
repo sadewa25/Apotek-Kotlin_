@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 import edu.stts.apotek_kotlin.R
+import edu.stts.submenu_home.supplier.insert.DetailSupplierFragment
 import edu.stts.ui.HomePresenter
 import org.jetbrains.anko.find
 
@@ -24,7 +25,8 @@ class SupplierFragment : Fragment() {
         homePresenter = HomePresenter()
 
         (view.find<FloatingActionButton>(R.id.fab)).setOnClickListener {
-            homePresenter.changeFragment(fragmentManager!!,InsertSupplierFragment(),R.id.frame_main)
+            homePresenter.changeFragment(fragmentManager!!,
+                DetailSupplierFragment(),R.id.frame_main)
         }
 
         return view

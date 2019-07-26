@@ -4,7 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="edu.stts.submenu_home.supplier.InsertSupplierFragment">
+        tools:context="edu.stts.submenu_home.supplier.insert.DetailSupplierFragment">
 
     <LinearLayout
             android:layout_width="match_parent"
@@ -70,6 +70,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Spinner
+                android:id="@+id/supplier_kota"
                 android:layout_margin="@dimen/margin_supersmall"
                 android:layout_marginTop="@dimen/margin_supersmall"
                 android:layout_width="match_parent"
