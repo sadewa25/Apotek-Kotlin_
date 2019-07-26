@@ -1,6 +1,5 @@
 package edu.stts.apotek_kotlin.menu.masters
 
-
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,12 +11,12 @@ import com.google.android.material.tabs.TabLayout
 import edu.stts.apotek_kotlin.R
 import org.jetbrains.anko.find
 
-
 class MastersFragment : Fragment() {
 
     private lateinit var presenter: MastersPresenter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
@@ -31,6 +30,5 @@ class MastersFragment : Fragment() {
 
         return view
     }
-
 
 }

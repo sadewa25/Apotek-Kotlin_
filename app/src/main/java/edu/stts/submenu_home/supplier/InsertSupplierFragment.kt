@@ -1,4 +1,4 @@
-package edu.stts.submenu_home
+package edu.stts.submenu_home.supplier
 
 
 import android.os.Bundle
@@ -10,14 +10,14 @@ import android.view.ViewGroup
 import edu.stts.apotek_kotlin.R
 
 
-class SupplierFragment : Fragment() {
+class InsertSupplierFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_supplier, container, false)
+        return inflater.inflate(R.layout.fragment_insert_supplier, container, false)
     }
 
 

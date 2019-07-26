@@ -6,6 +6,7 @@ import androidx.viewpager.widget.ViewPager
 import edu.stts.apotek_kotlin.R
 import edu.stts.apotek_kotlin.adapter.ViewPagerAdapter
 import edu.stts.submenu_home.*
+import edu.stts.submenu_home.supplier.SupplierFragment
 
 class MastersPresenter(val context: Context) {
 
