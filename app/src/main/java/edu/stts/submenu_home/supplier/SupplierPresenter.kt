@@ -12,7 +12,7 @@ import retrofit2.Response
 class SupplierPresenter(val context: Context, val client:APIClient, val view: SupplierView) {
 
     fun getDataSupplier(){
-        client.getDataBank().enqueue(object : Callback<ResponseJSON> {
+        client.getDataSupplier().enqueue(object : Callback<ResponseJSON> {
             override fun onFailure(call: Call<ResponseJSON>, t: Throwable) {
                 view.showMessage("Error Koneksi : ${t.message}")
             }
