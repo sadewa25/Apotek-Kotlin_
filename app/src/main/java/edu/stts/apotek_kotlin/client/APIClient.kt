@@ -9,4 +9,7 @@ interface APIClient {
     @GET("kota")
     fun getDataKota():Call<ResponseJSON>
 
+    @GET("bank")
+    fun getDataBank():Call<ResponseJSON>
+
 }
