@@ -16,6 +16,9 @@ interface APIClient {
     @GET("bank")
     fun getDataBank():Call<ResponseJSON>
 
+    @GET("supplier")
+    fun getDataSupplier():Call<ResponseJSON>
+
     @POST("category/insert")
     fun insertProductCategory(@Body body: ResultItem):Call<ResponseJSON>
 
