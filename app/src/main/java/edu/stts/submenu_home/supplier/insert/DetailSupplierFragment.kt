@@ -16,9 +16,14 @@ import edu.stts.apotek_kotlin.model.Data
 import edu.stts.apotek_kotlin.model.ResultItem
 import kotlinx.android.synthetic.main.fragment_insert_supplier.*
 import org.jetbrains.anko.find
+import org.jetbrains.anko.support.v4.toast
 
 
 class DetailSupplierFragment : Fragment(), DetailSupplierView{
+
+    override fun showToast(message: String) {
+        toast(message)
+    }
 
     /*BANK*/
     override fun getDataBank(dataItemsBank: List<ResultItem>) {

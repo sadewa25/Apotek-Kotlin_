@@ -50,7 +50,7 @@ class DetailSupplierPresenter(val context: Context, val client:APIClient, val vi
 
             override fun onResponse(call: Call<ResponseJSON>, response: Response<ResponseJSON>) {
                 if (response.body() != null){
-                    view.getDataBank(response.body()!!.data?.result as ArrayList<ResultItem>)
+                    view.showToast(response.message())
                 }
             }
 
