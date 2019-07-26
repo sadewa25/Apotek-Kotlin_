@@ -18,4 +18,8 @@ interface APIClient {
 
     @POST("category/insert")
     fun insertProductCategory(@Body body: ResultItem):Call<ResponseJSON>
+
+    @POST("supplier/insert")
+    fun insertSupplier(@Body body: ResultItem):Call<ResponseJSON>
+
 }

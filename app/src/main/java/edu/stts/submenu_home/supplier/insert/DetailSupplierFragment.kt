@@ -14,6 +14,7 @@ import edu.stts.apotek_kotlin.R
 import edu.stts.apotek_kotlin.client.APIResponse
 import edu.stts.apotek_kotlin.model.Data
 import edu.stts.apotek_kotlin.model.ResultItem
+import kotlinx.android.synthetic.main.fragment_insert_supplier.*
 import org.jetbrains.anko.find
 
 
@@ -70,6 +71,27 @@ class DetailSupplierFragment : Fragment(), DetailSupplierView{
 
 
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        supplier_btn.setOnClickListener {
+            val modelKota = supplier_kota.selectedItem as ResultItem
+            val modelBank = supplier_bank.selectedItem as ResultItem
+            presenter.insertSupplier(ResultItem(
+                name = supplier_nama.text.toString(),
+                address = supplier_alamat.text.toString(),
+                phone = supplier_phone.text.toString(),
+                npwp = supplier_npwp.text.toString(),
+                idCity = modelKota.idCity,
+                postalCode = supplier_kodepos.text.toString(),
+                email = supplier_email.text.toString(),
+                noRekening = supplier_rekening.text.toString(),
+                idBank = modelBank.idBank
+
+            ))
+        }
     }
 
 

@@ -31,6 +31,7 @@
                 android:layout_marginTop="@dimen/margin_small"
                 android:layout_height="wrap_content">
             <EditText
+                    android:id="@+id/supplier_nama"
                     android:layout_width="match_parent"
                     android:hint="Nama Supplier"
                     android:layout_height="wrap_content"/>
@@ -42,6 +43,7 @@
                 android:layout_marginTop="@dimen/margin_supersmall"
                 android:layout_height="wrap_content">
             <EditText
+                    android:id="@+id/supplier_alamat"
                     android:layout_width="match_parent"
                     android:hint="Alamat"
                     android:layout_height="wrap_content"/>
@@ -53,6 +55,7 @@
                 android:layout_marginTop="@dimen/margin_supersmall"
                 android:layout_height="wrap_content">
             <EditText
+                    android:id="@+id/supplier_phone"
                     android:layout_width="match_parent"
                     android:hint="Telephone"
                     android:layout_height="wrap_content"/>
@@ -64,6 +67,7 @@
                 android:layout_marginTop="@dimen/margin_supersmall"
                 android:layout_height="wrap_content">
             <EditText
+                    android:id="@+id/supplier_npwp"
                     android:layout_width="match_parent"
                     android:hint="NPWP"
                     android:layout_height="wrap_content"/>
@@ -83,6 +87,7 @@
                 android:layout_height="wrap_content">
             <EditText
                     android:layout_width="match_parent"
+                    android:id="@+id/supplier_kodepos"
                     android:hint="Kode Pos"
                     android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -93,6 +98,7 @@
                 android:layout_marginTop="@dimen/margin_supersmall"
                 android:layout_height="wrap_content">
             <EditText
+                    android:id="@+id/supplier_email"
                     android:layout_width="match_parent"
                     android:hint="Email"
                     android:layout_height="wrap_content"/>
@@ -104,6 +110,8 @@
                 android:layout_marginTop="@dimen/margin_supersmall"
                 android:layout_height="wrap_content">
             <EditText
+                    android:inputType="number"
+                    android:id="@+id/supplier_rekening"
                     android:layout_width="match_parent"
                     android:hint="No Rekening"
                     android:layout_height="wrap_content"/>
@@ -118,6 +126,7 @@
 
         <Button
                 android:text="SUBMIT"
+                android:id="@+id/supplier_btn"
                 android:background="@color/colorPrimaryDark"
                 android:textColor="@android:color/white"
                 android:layout_margin="@dimen/margin_supersmall"
