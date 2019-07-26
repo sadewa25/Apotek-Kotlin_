@@ -8,9 +8,10 @@ import edu.stts.apotek_kotlin.model.Data
 import android.widget.TextView
 import android.view.LayoutInflater
 import edu.stts.apotek_kotlin.R
+import edu.stts.apotek_kotlin.model.ResultItem
 
 
-class AdapterKota(val context: Context, val dataItems: ArrayList<Data?>?):BaseAdapter() {
+class AdapterKota(val context: Context, val dataItems: ArrayList<ResultItem?>?):BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         var views = convertView
@@ -19,11 +20,11 @@ class AdapterKota(val context: Context, val dataItems: ArrayList<Data?>?):BaseAd
         }
 
         // get current item to be displayed
-        val currentItem = getItem(position) as Data
+        val currentItem = getItem(position) as ResultItem
 
         // get the TextView for item name and item description
         val textViewItemName = views?.findViewById(R.id.item_title) as TextView
-        textViewItemName.text = currentItem.result?.get(position)?.name
+        textViewItemName.text = currentItem.name
 
         return views
     }

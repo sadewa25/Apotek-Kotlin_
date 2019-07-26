@@ -12,12 +12,13 @@ import edu.stts.adapter.AdapterKota
 import edu.stts.apotek_kotlin.R
 import edu.stts.apotek_kotlin.client.APIResponse
 import edu.stts.apotek_kotlin.model.Data
+import edu.stts.apotek_kotlin.model.ResultItem
 import org.jetbrains.anko.find
 
 
 class DetailSupplierFragment : Fragment(), DetailSupplierView{
 
-    override fun getDataKota(dataItemsKota: List<Data>) {
+    override fun getDataKota(dataItemsKota: List<ResultItem>) {
         if (dataItemsKota!=null){
             dataKota?.addAll(dataItemsKota)
             adapter = AdapterKota(context!!,dataKota)
@@ -27,7 +28,7 @@ class DetailSupplierFragment : Fragment(), DetailSupplierView{
     }
 
     private lateinit var adapter:AdapterKota
-    private var dataKota: ArrayList<Data?>? = null
+    private var dataKota: ArrayList<ResultItem?>? = null
     private lateinit var views:View
     private lateinit var presenter: DetailSupplierPresenter
 
