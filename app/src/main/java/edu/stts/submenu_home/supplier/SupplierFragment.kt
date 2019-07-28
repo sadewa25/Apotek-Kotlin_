@@ -65,8 +65,6 @@ class SupplierFragment : Fragment(), SupplierView{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
     }
 
 

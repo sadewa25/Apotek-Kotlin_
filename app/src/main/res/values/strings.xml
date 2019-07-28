@@ -28,4 +28,6 @@
     <string name="title_principal">Principal</string>
     <string name="title_supplier">Supplier</string>
     <string name="title_master">Master</string>
+    <string name="success_insert">Penambahan Data Sukses</string>
+    <string name="failed_insert">Penambahan Gagal</string>
 </resources>

@@ -7,6 +7,7 @@ import edu.stts.apotek_kotlin.R
 import edu.stts.apotek_kotlin.adapter.ViewPagerAdapter
 import edu.stts.submenu_home.*
 import edu.stts.submenu_home.kategoribarang.KategoriFragment
+import edu.stts.submenu_home.kemasan.KemasanFragment
 import edu.stts.submenu_home.supplier.SupplierFragment
 
 class MastersPresenter(val context: Context) {

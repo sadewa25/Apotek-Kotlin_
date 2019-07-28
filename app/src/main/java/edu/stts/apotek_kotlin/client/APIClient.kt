@@ -25,4 +25,10 @@ interface APIClient {
     @POST("supplier/insert")
     fun insertSupplier(@Body body: ResultItem):Call<ResponseJSON>
 
+    @POST("kemasan/insert")
+    fun insertKemasan(@Body body: ResultItem):Call<ResponseJSON>
+
+    @GET("kemasan")
+    fun getDataKemasan():Call<ResponseJSON>
+
 }
