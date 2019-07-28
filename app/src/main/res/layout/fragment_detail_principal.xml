@@ -36,6 +36,45 @@
                     android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/margin_supersmall"
+                android:layout_marginTop="@dimen/margin_supersmall"
+                android:layout_height="wrap_content">
+            <EditText
+                    android:id="@+id/principal_address"
+                    android:layout_width="match_parent"
+                    android:hint="Alamat Principal"
+                    android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/margin_supersmall"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_height="wrap_content">
+            <EditText
+                    android:id="@+id/principal_phone"
+                    android:layout_width="match_parent"
+                    android:hint="Phone Principal"
+                    android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ListView
+                android:layout_width="match_parent"
+                android:id="@+id/principal_list_rekening"
+                android:layout_height="wrap_content"/>
+
+        <Button
+                android:text="TAMBAH REKENING"
+                android:id="@+id/principal_btn_rekening"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="@android:color/white"
+                android:layout_margin="@dimen/margin_supersmall"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
         <Button
                 android:text="SUBMIT"
                 android:id="@+id/principal_btn"
