@@ -37,4 +37,11 @@ interface APIClient {
     @GET("kemasan")
     fun getDataKemasan():Call<ResponseJSON>
 
+    @POST("principal/insert")
+    fun insertPrincipal(@Body body: ResultItem):Call<ResponseJSON>
+
+    @GET("principal")
+    fun getDataPrincipal():Call<ResponseJSON>
+
+
 }

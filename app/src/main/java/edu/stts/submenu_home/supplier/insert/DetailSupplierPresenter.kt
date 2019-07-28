@@ -2,7 +2,6 @@ package edu.stts.submenu_home.supplier.insert
 
 import android.content.Context
 import edu.stts.apotek_kotlin.client.APIClient
-import edu.stts.apotek_kotlin.model.Data
 import edu.stts.apotek_kotlin.model.ResponseJSON
 import edu.stts.apotek_kotlin.model.ResultItem
 import org.jetbrains.anko.toast
@@ -50,7 +49,7 @@ class DetailSupplierPresenter(val context: Context, val client:APIClient, val vi
 
             override fun onResponse(call: Call<ResponseJSON>, response: Response<ResponseJSON>) {
                 if (response.body() != null){
-                    view.showToast(response.message())
+                    view.showToast(response.body()!!.success)
                 }
             }
 

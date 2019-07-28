@@ -8,11 +8,11 @@ import androidx.room.Query
 @Dao
 interface DataClassDAO {
 
-    @Query("SELECT * FROM Principal")
+    @Query("SELECT * FROM PrincipalPresenter")
     fun getAllPrincipal(): List<DataClassModel.Principal>
     @Insert
     fun insertAllPrincipal(vararg users: DataClassModel.Principal)
-    @Query("SELECT * FROM Principal WHERE idPrincipal IN (:principalID)")
+    @Query("SELECT * FROM PrincipalPresenter WHERE idPrincipal IN (:principalID)")
     fun loadAllByIdsPrincipal(principalID: IntArray): List<DataClassModel.Principal>
     @Delete
     fun deletePrincipal(id: DataClassModel.Principal)

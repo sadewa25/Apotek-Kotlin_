@@ -12,8 +12,10 @@ import edu.stts.adapter.AdapterKota
 
 import edu.stts.apotek_kotlin.R
 import edu.stts.apotek_kotlin.client.APIResponse
-import edu.stts.apotek_kotlin.model.Data
+import edu.stts.apotek_kotlin.menu.KeranjangFragment
+import edu.stts.apotek_kotlin.menu.masters.MastersFragment
 import edu.stts.apotek_kotlin.model.ResultItem
+import edu.stts.ui.HomePresenter
 import kotlinx.android.synthetic.main.fragment_insert_supplier.*
 import org.jetbrains.anko.find
 import org.jetbrains.anko.support.v4.toast
@@ -21,8 +23,13 @@ import org.jetbrains.anko.support.v4.toast
 
 class DetailSupplierFragment : Fragment(), DetailSupplierView{
 
-    override fun showToast(message: String) {
-        toast(message)
+    override fun showToast(message: Boolean?) {
+        if (message == true){
+            toast(context?.getString(R.string.success_insert)!!)
+            homePresenter.changeFragment(fragmentManager!!,MastersFragment(),R.id.frame_main)
+        }else{
+            toast(context?.getString(R.string.failed_insert)!!)
+        }
     }
 
     /*BANK*/
@@ -50,6 +57,7 @@ class DetailSupplierFragment : Fragment(), DetailSupplierView{
     private var dataKota: ArrayList<ResultItem?>? = null
     private lateinit var views:View
     private lateinit var presenter: DetailSupplierPresenter
+    private lateinit var homePresenter: HomePresenter
     private lateinit var adapterBank:AdapterBank
     private var dataBank: ArrayList<ResultItem?>? = null
 
@@ -58,6 +66,8 @@ class DetailSupplierFragment : Fragment(), DetailSupplierView{
         val view = inflater.inflate(R.layout.fragment_insert_supplier, container, false)
 
         views = view
+
+        homePresenter = HomePresenter()
         /*KOTA*/
         dataKota = arrayListOf()
         adapter = AdapterKota(context!!,dataKota)

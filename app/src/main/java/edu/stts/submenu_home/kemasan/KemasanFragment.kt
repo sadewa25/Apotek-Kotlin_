@@ -8,17 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import edu.stts.adapter.AdapterRecyclerKemasan
-import edu.stts.adapter.AdapterRecyclerSupplier
 
 import edu.stts.apotek_kotlin.R
 import edu.stts.apotek_kotlin.client.APIResponse
 import edu.stts.apotek_kotlin.model.ResultItem
 import edu.stts.submenu_home.kemasan.detail.DetailKemasanFragment
 import edu.stts.ui.HomePresenter
-import kotlinx.android.synthetic.main.fragment_kemasan.*
 import kotlinx.android.synthetic.main.fragment_kemasan.fab
 import kotlinx.android.synthetic.main.fragment_kemasan.recycler_list
-import kotlinx.android.synthetic.main.fragment_supplier.*
 import org.jetbrains.anko.support.v4.toast
 
 

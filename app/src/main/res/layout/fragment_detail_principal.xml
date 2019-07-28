@@ -18,7 +18,7 @@
                     android:padding="@dimen/margin_small"
                     android:textAllCaps="true"
                     android:layout_width="match_parent"
-                    android:text="Insert Kemasan"
+                    android:text="Insert Principal"
                     android:textColor="@android:color/white"
                     android:textAlignment="center"
                     android:layout_height="wrap_content"/>
@@ -30,15 +30,15 @@
                 android:layout_marginTop="@dimen/margin_small"
                 android:layout_height="wrap_content">
             <EditText
-                    android:id="@+id/kemasan_nama"
+                    android:id="@+id/principal_nama"
                     android:layout_width="match_parent"
-                    android:hint="Nama Kemasan"
+                    android:hint="Nama Principal"
                     android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
                 android:text="SUBMIT"
-                android:id="@+id/kemasan_btn"
+                android:id="@+id/principal_btn"
                 android:background="@color/colorPrimaryDark"
                 android:textColor="@android:color/white"
                 android:layout_margin="@dimen/margin_supersmall"

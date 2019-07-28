@@ -1,4 +1,4 @@
-package edu.stts.submenu_home.kemasan.detail
+package edu.stts.submenu_home.principal.detail
 
 
 import android.os.Bundle
@@ -9,16 +9,13 @@ import android.view.ViewGroup
 
 import edu.stts.apotek_kotlin.R
 import edu.stts.apotek_kotlin.client.APIResponse
-import edu.stts.apotek_kotlin.menu.KeranjangFragment
 import edu.stts.apotek_kotlin.menu.masters.MastersFragment
 import edu.stts.apotek_kotlin.model.ResultItem
-import edu.stts.submenu_home.kemasan.KemasanFragment
 import edu.stts.ui.HomePresenter
-import kotlinx.android.synthetic.main.fragment_detail_kemasan.*
+import kotlinx.android.synthetic.main.fragment_detail_principal.*
 import org.jetbrains.anko.support.v4.toast
 
-
-class DetailKemasanFragment : Fragment(),DetailKemasanView {
+class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
 
     override fun showMessage(message: Boolean?) {
         if (message == true){
@@ -29,26 +26,25 @@ class DetailKemasanFragment : Fragment(),DetailKemasanView {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detail_kemasan, container, false)
+        return inflater.inflate(R.layout.fragment_detail_principal, container, false)
     }
 
-    private lateinit var presenter: DetailKemasanPresenter
+    private lateinit var presenter: DetailPrincipalPresenter
     private lateinit var homePresenter: HomePresenter
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        presenter = DetailKemasanPresenter(context,APIResponse().response(),this)
+        presenter = DetailPrincipalPresenter(context, APIResponse().response(),this)
         homePresenter = HomePresenter()
 
-        kemasan_btn.setOnClickListener {
-            presenter.insertKemasan(ResultItem(name = kemasan_nama.text.toString()))
+        principal_btn.setOnClickListener {
+            presenter.insertPrincipal(ResultItem(name = principal_nama.text.toString()))
         }
 
     }
+
 
 }
