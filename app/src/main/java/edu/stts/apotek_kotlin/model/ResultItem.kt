@@ -35,6 +35,9 @@ data class ResultItem(
 	val email: String? = null,
 
 	@field:SerializedName("id_category")
-	val idCategory: String? = null
+	val idCategory: String? = null,
+
+	@field:SerializedName("id_kemasan")
+	val id_kemasan: String? = null
 
 )

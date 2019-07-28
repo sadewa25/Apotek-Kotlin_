@@ -6,5 +6,5 @@ interface KemasanView {
     fun showLoading()
     fun hideLoading()
     fun showMessage(data:String)
-    fun getDataSupplier(dataItems:List<ResultItem?>?)
+    fun getDataKemasan(dataItems:List<ResultItem?>?)
 }
