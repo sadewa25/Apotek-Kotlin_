@@ -22,6 +22,9 @@ interface APIClient {
     @GET("category")
     fun getDataCategory():Call<ResponseJSON>
 
+    @GET("lokosirak")
+    fun getDataLokasiRak():Call<ResponseJSON>
+
     @POST("category/insert")
     fun insertProductCategory(@Body body: ResultItem):Call<ResponseJSON>
 
