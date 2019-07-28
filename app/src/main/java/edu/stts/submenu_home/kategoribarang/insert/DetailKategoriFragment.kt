@@ -7,14 +7,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import edu.stts.adapter.AdapterRecyclerKategoriBarang
 
 import edu.stts.apotek_kotlin.R
 import edu.stts.apotek_kotlin.client.APIResponse
 import edu.stts.apotek_kotlin.model.ResultItem
 import kotlinx.android.synthetic.main.fragment_insert_kategori.*
+import kotlinx.android.synthetic.main.fragment_kategori.*
 
 class DetailKategoriFragment : Fragment(),DetailKategoriView, View.OnClickListener{
     private lateinit var presenter: DetailKategoriPresenter
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
