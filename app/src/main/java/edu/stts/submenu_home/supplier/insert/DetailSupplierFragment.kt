@@ -19,6 +19,7 @@ import edu.stts.apotek_kotlin.client.APIResponse
 import edu.stts.apotek_kotlin.menu.masters.MastersFragment
 import edu.stts.apotek_kotlin.model.ResultItem
 import edu.stts.ui.HomePresenter
+import kotlinx.android.synthetic.main.fragment_detail_principal.*
 import kotlinx.android.synthetic.main.fragment_insert_supplier.*
 import org.jetbrains.anko.find
 import org.jetbrains.anko.support.v4.toast
@@ -46,12 +47,7 @@ class DetailSupplierFragment : Fragment(), DetailSupplierView{
 
     /*BANK*/
     override fun getDataBank(dataItemsBank: List<ResultItem>) {
-        if (dataItemsBank!=null){
-            dataBank?.addAll(dataItemsBank)
-            adapterBank = AdapterBank(context!!,dataBank)
-            (views.find<Spinner>(R.id.supplier_bank)).adapter = adapterBank
-            adapterBank.notifyDataSetChanged()
-        }
+
     }
     /**/
     /*KOTA*/
@@ -70,8 +66,6 @@ class DetailSupplierFragment : Fragment(), DetailSupplierView{
     private lateinit var views:View
     private lateinit var presenter: DetailSupplierPresenter
     private lateinit var homePresenter: HomePresenter
-    private lateinit var adapterBank:AdapterBank
-    private var dataBank: ArrayList<ResultItem?>? = null
     /*Principal*/
     private var dataPrincipal:ArrayList<ResultItem?>? = null
     private lateinit var adapterPrincipal:AdapterBank
@@ -98,12 +92,6 @@ class DetailSupplierFragment : Fragment(), DetailSupplierView{
         (view.find<Spinner>(R.id.supplier_kota)).adapter = adapter
         /**/
 
-        /*BANK*/
-        dataBank = arrayListOf()
-        adapterBank = AdapterBank(context!!,dataBank)
-        (view.find<Spinner>(R.id.supplier_bank)).adapter = adapterBank
-        /**/
-
         presenter = DetailSupplierPresenter(context!!,APIResponse().response(),this)
         presenter.getKota()
         presenter.getBank()
@@ -118,14 +106,15 @@ class DetailSupplierFragment : Fragment(), DetailSupplierView{
         dataListPrincipal = arrayListOf()
         adapterListPrincipal = AdapterBank(context!!,dataListPrincipal)
         supplier_list_principal.adapter = adapterListPrincipal
+        supplier_list_principal.isNestedScrollingEnabled = true
 
         dataListRekening = arrayListOf()
         adapterListRekening = AdapterRekening(context!!,dataListRekening)
         supplier_list_rekening.adapter = adapterListRekening
+        supplier_list_rekening.isNestedScrollingEnabled = true
 
         supplier_btn.setOnClickListener {
             val modelKota = supplier_kota.selectedItem as ResultItem
-            val modelBank = supplier_bank.selectedItem as ResultItem
             presenter.insertSupplier(ResultItem(
                 name = supplier_nama.text.toString(),
                 address = supplier_alamat.text.toString(),
@@ -133,8 +122,7 @@ class DetailSupplierFragment : Fragment(), DetailSupplierView{
                 npwp = supplier_npwp.text.toString(),
                 idCity = modelKota.idCity,
                 postalCode = supplier_kodepos.text.toString(),
-                email = supplier_email.text.toString(),
-                idBank = modelBank.idBank
+                email = supplier_email.text.toString()
 
             ))
         }

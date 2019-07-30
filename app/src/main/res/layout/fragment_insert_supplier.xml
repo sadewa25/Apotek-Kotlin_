@@ -105,13 +105,6 @@
                     android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Spinner
-                android:id="@+id/supplier_bank"
-                android:layout_margin="@dimen/margin_supersmall"
-                android:layout_marginTop="@dimen/margin_supersmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
         <ListView
                 android:layout_width="match_parent"
                 android:id="@+id/supplier_list_rekening"
