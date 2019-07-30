@@ -40,9 +40,6 @@ data class ResultItem(
 	@field:SerializedName("id_kemasan")
 	val id_kemasan: String? = null,
 
-	@field:SerializedName("no_rekening")
-	val no_rekening: String? = null,
-
 	@field:SerializedName("pemilik_rekening")
 	val pemilik_rekening: String? = null
 

@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.Spinner
 import androidx.appcompat.app.AlertDialog
 import edu.stts.adapter.AdapterBank
+import edu.stts.adapter.AdapterRekening
 
 import edu.stts.apotek_kotlin.R
 import edu.stts.apotek_kotlin.client.APIResponse
@@ -46,7 +47,7 @@ class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
     private lateinit var homePresenter: HomePresenter
 
     private var dataRekening:ArrayList<ResultItem?>? = null
-    private lateinit var adapterRekening: AdapterBank
+    private lateinit var adapterRekening: AdapterRekening
 
     private var dataBank:MutableList<ResultItem?>? = null
     private lateinit var adapterBank: AdapterBank
@@ -61,7 +62,7 @@ class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
         dataRekening = arrayListOf()
         dataBank = mutableListOf()
 
-        adapterRekening = AdapterBank(context!!,dataRekening)
+        adapterRekening = AdapterRekening(context!!,dataRekening)
         principal_list_rekening.adapter = adapterRekening
 
         principal_btn.setOnClickListener {
@@ -94,7 +95,6 @@ class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
                 ))
                 adapterRekening.notifyDataSetChanged()
             }
-
 
             dialog.show()
         }
