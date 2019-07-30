@@ -19,4 +19,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+    <EditText
+            android:layout_marginTop="@dimen/margin_supersmall"
+            android:id="@+id/dialog_namarekening"
+            android:hint="Nama Rekening"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <Button
+            android:text="Submit"
+            android:id="@+id/btn_submit"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
 </LinearLayout>

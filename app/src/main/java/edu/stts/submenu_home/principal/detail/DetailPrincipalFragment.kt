@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Spinner
 import androidx.appcompat.app.AlertDialog
 import edu.stts.adapter.AdapterBank
@@ -15,6 +17,7 @@ import edu.stts.apotek_kotlin.menu.masters.MastersFragment
 import edu.stts.apotek_kotlin.model.ResultItem
 import edu.stts.ui.HomePresenter
 import kotlinx.android.synthetic.main.fragment_detail_principal.*
+import kotlinx.android.synthetic.main.fragment_insert_supplier.*
 import org.jetbrains.anko.find
 import org.jetbrains.anko.support.v4.toast
 
@@ -72,12 +75,20 @@ class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
 
             adapterBank = AdapterBank(context!!,dataBank)
             spinner.adapter = adapterBank
-
             presenter.getBank()
+
+            val noRekening = mDialogView.find<EditText>(R.id.dialog_rekening)
+            val namaRekening = mDialogView.find<EditText>(R.id.dialog_namarekening)
+
+            (mDialogView.find<Button>(R.id.btn_submit)).setOnClickListener {
+                val modelBank = spinner.selectedItem as ResultItem
+                toast("${modelBank.idBank}")
+            }
+
 
             dialog.show()
         }
 
-
     }
+
 }
