@@ -57,7 +57,7 @@ class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
 
     fun getID():String{
         return "${Calendar.getInstance()
-            .getTimeInMillis()}.jpg"
+            .getTimeInMillis()}"
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -80,6 +80,7 @@ class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
                 name = principal_nama.text.toString(),
                 address = principal_address.text.toString(),
                 phone = principal_phone.text.toString()))
+
             for(i in 0 until dataRekening!!.size){
                 presenter.insertBankPrincipal(
                     ResultItem(
