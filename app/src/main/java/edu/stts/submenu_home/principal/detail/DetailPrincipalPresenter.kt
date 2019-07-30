@@ -42,7 +42,6 @@ class DetailPrincipalPresenter
         })
     }
 
-
     fun getBank(){
         client.getDataBank().enqueue(object : Callback<ResponseJSON>{
             override fun onFailure(call: Call<ResponseJSON>, t: Throwable) {

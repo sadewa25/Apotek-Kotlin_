@@ -6,7 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Spinner
+import androidx.appcompat.app.AlertDialog
 import edu.stts.adapter.AdapterBank
 import edu.stts.adapter.AdapterKota
 
@@ -19,8 +22,12 @@ import kotlinx.android.synthetic.main.fragment_insert_supplier.*
 import org.jetbrains.anko.find
 import org.jetbrains.anko.support.v4.toast
 
-
 class DetailSupplierFragment : Fragment(), DetailSupplierView{
+
+    override fun getDataPrincipal(dataItemsPrincipal: List<ResultItem>) {
+        dataPrincipal!!.addAll(dataItemsPrincipal)
+        adapterPrincipal.notifyDataSetChanged()
+    }
 
     override fun showToast(message: Boolean?) {
         if (message == true){
@@ -59,6 +66,9 @@ class DetailSupplierFragment : Fragment(), DetailSupplierView{
     private lateinit var homePresenter: HomePresenter
     private lateinit var adapterBank:AdapterBank
     private var dataBank: ArrayList<ResultItem?>? = null
+
+    private var dataPrincipal:ArrayList<ResultItem?>? = null
+    private lateinit var adapterPrincipal:AdapterBank
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -101,11 +111,38 @@ class DetailSupplierFragment : Fragment(), DetailSupplierView{
                 idCity = modelKota.idCity,
                 postalCode = supplier_kodepos.text.toString(),
                 email = supplier_email.text.toString(),
-                noRekening = supplier_rekening.text.toString(),
                 idBank = modelBank.idBank
 
             ))
         }
+
+        supplier_principal_btn.setOnClickListener {
+            val builder = AlertDialog.Builder(context!!)
+            val mDialogView = LayoutInflater.from(context).inflate(R.layout.item_dialog_principal_bank, null)
+            builder.setView(mDialogView)
+            val dialog = builder.create()
+            val spinner = mDialogView.find<Spinner>(R.id.dialog_bank)
+
+            dataPrincipal = arrayListOf()
+            adapterPrincipal = AdapterBank(context!!,dataPrincipal)
+            spinner.adapter = adapterPrincipal
+            presenter.getDataPrincipal()
+            /*Menghilangkan EditText*/
+            val noRekening = mDialogView.find<EditText>(R.id.dialog_rekening)
+            noRekening.visibility = View.GONE
+            val namaRekening = mDialogView.find<EditText>(R.id.dialog_namarekening)
+            namaRekening.visibility = View.GONE
+            /*END*/
+
+            (mDialogView.find<Button>(R.id.btn_submit)).setOnClickListener {
+                val modelBank = spinner.selectedItem as ResultItem
+
+                dialog.dismiss()
+            }
+            dialog.show()
+
+        }
+
     }
 
 

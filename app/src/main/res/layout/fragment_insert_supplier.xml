@@ -104,23 +104,38 @@
                     android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_margin="@dimen/margin_supersmall"
-                android:layout_marginTop="@dimen/margin_supersmall"
-                android:layout_height="wrap_content">
-            <EditText
-                    android:inputType="number"
-                    android:id="@+id/supplier_rekening"
-                    android:layout_width="match_parent"
-                    android:hint="No Rekening"
-                    android:layout_height="wrap_content"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
         <Spinner
                 android:id="@+id/supplier_bank"
                 android:layout_margin="@dimen/margin_supersmall"
                 android:layout_marginTop="@dimen/margin_supersmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <ListView
+                android:layout_width="match_parent"
+                android:id="@+id/supplier_list_rekening"
+                android:layout_height="wrap_content"/>
+
+        <Button
+                android:text="TAMBAH REKENING"
+                android:id="@+id/supplier_rekening_btn"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="@android:color/white"
+                android:layout_margin="@dimen/margin_supersmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <ListView
+                android:layout_width="match_parent"
+                android:id="@+id/supplier_list_principal"
+                android:layout_height="wrap_content"/>
+
+        <Button
+                android:text="TAMBAH REKENING"
+                android:id="@+id/supplier_principal_btn"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="@android:color/white"
+                android:layout_margin="@dimen/margin_supersmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
@@ -133,5 +148,7 @@
                 android:layout_marginTop="@dimen/margin_small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
     </LinearLayout>
+
 </androidx.core.widget.NestedScrollView>
