@@ -56,6 +56,36 @@ class DetailSupplierPresenter(val context: Context, val client:APIClient, val vi
         })
     }
 
+    fun insertBankSupplier(data:ResultItem){
+        client.insertBankSupplier(data).enqueue(object : Callback<ResponseJSON>{
+            override fun onFailure(call: Call<ResponseJSON>, t: Throwable) {
+                context?.toast("Error Koneksi : ${t.message}")
+            }
+
+            override fun onResponse(call: Call<ResponseJSON>, response: Response<ResponseJSON>) {
+                if (response.body() != null){
+                    view.showToast(response.body()!!.success)
+                }
+            }
+
+        })
+    }
+
+    fun insertPrincipalSupplier(data:ResultItem){
+        client.insertPrincipalSupplier(data).enqueue(object : Callback<ResponseJSON>{
+            override fun onFailure(call: Call<ResponseJSON>, t: Throwable) {
+                context?.toast("Error Koneksi : ${t.message}")
+            }
+
+            override fun onResponse(call: Call<ResponseJSON>, response: Response<ResponseJSON>) {
+                if (response.body() != null){
+                    view.showToast(response.body()!!.success)
+                }
+            }
+
+        })
+    }
+
     fun getDataPrincipal(){
         client.getDataPrincipal().enqueue(object : Callback<ResponseJSON>{
             override fun onFailure(call: Call<ResponseJSON>, t: Throwable) {

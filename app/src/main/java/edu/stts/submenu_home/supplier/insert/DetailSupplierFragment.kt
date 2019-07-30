@@ -23,6 +23,8 @@ import kotlinx.android.synthetic.main.fragment_detail_principal.*
 import kotlinx.android.synthetic.main.fragment_insert_supplier.*
 import org.jetbrains.anko.find
 import org.jetbrains.anko.support.v4.toast
+import java.util.*
+import kotlin.collections.ArrayList
 
 class DetailSupplierFragment : Fragment(), DetailSupplierView{
 
@@ -100,6 +102,11 @@ class DetailSupplierFragment : Fragment(), DetailSupplierView{
         return view
     }
 
+    fun getID():String{
+        return "${Calendar.getInstance()
+            .getTimeInMillis()}"
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -115,7 +122,9 @@ class DetailSupplierFragment : Fragment(), DetailSupplierView{
 
         supplier_btn.setOnClickListener {
             val modelKota = supplier_kota.selectedItem as ResultItem
+            val id = "${getID()}"
             presenter.insertSupplier(ResultItem(
+                idSupplier = id,
                 name = supplier_nama.text.toString(),
                 address = supplier_alamat.text.toString(),
                 phone = supplier_phone.text.toString(),
@@ -125,6 +134,24 @@ class DetailSupplierFragment : Fragment(), DetailSupplierView{
                 email = supplier_email.text.toString()
 
             ))
+            for (i in 0 until dataListRekening!!.size ){
+                presenter.insertBankSupplier(
+                    ResultItem(
+                        idSupplier = id,
+                        idBank = dataListRekening?.get(i)?.idBank,
+                        noRekening = dataListRekening?.get(i)?.noRekening,
+                        pemilik_rekening = dataListRekening?.get(i)?.pemilik_rekening
+                    ))
+            }
+
+            for (i in 0 until dataListPrincipal!!.size){
+                presenter.insertPrincipalSupplier(
+                    ResultItem(
+                        idSupplier = id,
+                        id_principal = dataListPrincipal?.get(i)?.id_principal
+                    )
+                )
+            }
         }
 
         supplier_rekening_btn.setOnClickListener {
