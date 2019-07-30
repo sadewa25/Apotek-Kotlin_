@@ -73,9 +73,10 @@ class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
         }
 
         principal_btn_rekening.setOnClickListener {
-            val dialog = AlertDialog.Builder(context!!)
+            val builder = AlertDialog.Builder(context!!)
             mDialogView = LayoutInflater.from(context).inflate(R.layout.item_dialog_principal_bank, null)
-            dialog.setView(mDialogView)
+            builder.setView(mDialogView)
+            val dialog = builder.create()
             val spinner = mDialogView.find<Spinner>(R.id.dialog_bank)
 
             adapterBank = AdapterBank(context!!,dataBank)
@@ -94,9 +95,11 @@ class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
                     pemilik_rekening = namaRekening.text.toString()
                 ))
                 adapterRekening.notifyDataSetChanged()
-            }
 
+                dialog.dismiss()
+            }
             dialog.show()
+
         }
 
     }

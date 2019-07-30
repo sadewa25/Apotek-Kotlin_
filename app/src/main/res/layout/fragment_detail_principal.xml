@@ -1,5 +1,5 @@
 <androidx.core.widget.NestedScrollView
-        android:orientation="vertical"
+        android:fillViewport="true"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -63,7 +63,7 @@
         <ListView
                 android:layout_width="match_parent"
                 android:id="@+id/principal_list_rekening"
-                android:layout_height="wrap_content"/>
+                android:layout_height="match_parent"/>
 
         <Button
                 android:text="TAMBAH REKENING"
