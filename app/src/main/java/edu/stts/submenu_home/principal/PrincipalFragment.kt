@@ -63,8 +63,6 @@ class PrincipalFragment : Fragment(),PrincipalView{
 
         presenterPrincipal.getDataPrincipal()
 
-
-
     }
 
 }
