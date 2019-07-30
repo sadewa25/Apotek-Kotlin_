@@ -21,6 +21,8 @@ import kotlinx.android.synthetic.main.fragment_detail_principal.*
 import kotlinx.android.synthetic.main.fragment_insert_supplier.*
 import org.jetbrains.anko.find
 import org.jetbrains.anko.support.v4.toast
+import java.util.*
+import kotlin.collections.ArrayList
 
 class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
 
@@ -53,6 +55,11 @@ class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
     private lateinit var adapterBank: AdapterBank
     private lateinit var mDialogView:View
 
+    fun getID():String{
+        return "${Calendar.getInstance()
+            .getTimeInMillis()}.jpg"
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -67,10 +74,22 @@ class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
         principal_list_rekening.isNestedScrollingEnabled = true
 
         principal_btn.setOnClickListener {
+            val idPrincipal = getID()
             presenter.insertPrincipal(ResultItem(
+                id_principal = "${idPrincipal}",
                 name = principal_nama.text.toString(),
                 address = principal_address.text.toString(),
                 phone = principal_phone.text.toString()))
+            for(i in 0 until dataRekening!!.size){
+                presenter.insertBankPrincipal(
+                    ResultItem(
+                        id_principal = idPrincipal,
+                        idBank = dataRekening?.get(i)?.idBank,
+                        noRekening = dataRekening?.get(i)?.noRekening,
+                        pemilik_rekening = dataRekening?.get(i)?.pemilik_rekening
+                    )
+                )
+            }
         }
 
         principal_btn_rekening.setOnClickListener {

@@ -27,6 +27,22 @@ class DetailPrincipalPresenter
         })
     }
 
+    fun insertBankPrincipal(dataPrincipal: ResultItem){
+        client.insertPrincipalBank(dataPrincipal).enqueue(object : Callback<ResponseJSON> {
+            override fun onFailure(call: Call<ResponseJSON>, t: Throwable) {
+                context?.toast("Error Koneksi : ${t.message}")
+            }
+
+            override fun onResponse(call: Call<ResponseJSON>, response: Response<ResponseJSON>) {
+                if (response.body() != null){
+                    view.showMessage(response.body()!!.success)
+                }
+            }
+
+        })
+    }
+
+
     fun getBank(){
         client.getDataBank().enqueue(object : Callback<ResponseJSON>{
             override fun onFailure(call: Call<ResponseJSON>, t: Throwable) {

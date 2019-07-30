@@ -40,6 +40,9 @@ interface APIClient {
     @POST("principal/insert")
     fun insertPrincipal(@Body body: ResultItem):Call<ResponseJSON>
 
+    @POST("bankprincipal/insert")
+    fun insertPrincipalBank(@Body body: ResultItem):Call<ResponseJSON>
+
     @GET("principal")
     fun getDataPrincipal():Call<ResponseJSON>
 

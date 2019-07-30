@@ -41,7 +41,10 @@ data class ResultItem(
 	val id_kemasan: String? = null,
 
 	@field:SerializedName("pemilik_rekening")
-	val pemilik_rekening: String? = null
+	val pemilik_rekening: String? = null,
+
+	@field:SerializedName("id_principal")
+	val id_principal: String? = null
 
 
 )
