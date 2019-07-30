@@ -64,6 +64,7 @@ class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
 
         adapterRekening = AdapterRekening(context!!,dataRekening)
         principal_list_rekening.adapter = adapterRekening
+        principal_list_rekening.isNestedScrollingEnabled = true
 
         principal_btn.setOnClickListener {
             presenter.insertPrincipal(ResultItem(

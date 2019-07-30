@@ -3,6 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
+        android:scrollbars="none"
         android:layout_height="match_parent">
 
     <LinearLayout
@@ -48,6 +49,10 @@
                     android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <ListView
+                android:layout_width="match_parent"
+                android:id="@+id/principal_list_rekening"
+                android:layout_height="wrap_content"/>
         <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_margin="@dimen/margin_supersmall"
@@ -59,11 +64,6 @@
                     android:hint="Phone Principal"
                     android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
-
-        <ListView
-                android:layout_width="match_parent"
-                android:id="@+id/principal_list_rekening"
-                android:layout_height="wrap_content"/>
 
         <Button
                 android:text="TAMBAH REKENING"
