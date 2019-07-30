@@ -11,6 +11,7 @@ import edu.stts.adapter.AdapterRecyclerKemasan
 import edu.stts.adapter.AdapterRecyclerPrincipal
 
 import edu.stts.apotek_kotlin.R
+import edu.stts.apotek_kotlin.client.APIResponse
 import edu.stts.apotek_kotlin.model.ResultItem
 import edu.stts.submenu_home.kemasan.KemasanPresenter
 import edu.stts.submenu_home.principal.detail.DetailPrincipalFragment
@@ -61,6 +62,7 @@ class PrincipalFragment : Fragment(),PrincipalView{
         dataPrincipal = arrayListOf()
         adapterRecyclerPrincipal = AdapterRecyclerPrincipal(context!!,dataPrincipal ){}
 
+        presenterPrincipal = PrincipalPresenter(context,APIResponse().response(),this)
         presenterPrincipal.getDataPrincipal()
 
     }
