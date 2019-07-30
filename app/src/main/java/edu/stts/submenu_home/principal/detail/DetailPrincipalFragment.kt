@@ -60,6 +60,7 @@ class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
 
         dataRekening = arrayListOf()
         dataBank = arrayListOf()
+        adapterBank = AdapterBank(context!!,dataBank)
 
         principal_btn.setOnClickListener {
             presenter.insertPrincipal(ResultItem(
