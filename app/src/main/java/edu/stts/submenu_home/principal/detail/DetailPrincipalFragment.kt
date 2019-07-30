@@ -21,8 +21,10 @@ import org.jetbrains.anko.support.v4.toast
 
 class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
 
-    override fun getDataBank(dataItemsBank: List<ResultItem>): List<ResultItem> {
-        return dataItemsBank
+    override fun getDataBank(dataItemsBank: List<ResultItem>){
+        if (dataItemsBank!=null){
+            dataBank!!.addAll(dataItemsBank)
+        }
     }
 
     override fun showMessage(message: Boolean?) {
@@ -73,11 +75,13 @@ class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
             val spinner = mDialogView.find<Spinner>(R.id.dialog_bank)
 
             dataBank = arrayListOf()
-            dataBank!!.addAll(presenter.getBank() as ArrayList<ResultItem>)
-
             adapterBank = AdapterBank(context!!,dataBank)
-
             spinner.adapter = adapterBank
+
+            presenter.getBank()
+            adapterBank = AdapterBank(context!!,dataBank)
+            spinner.adapter = adapterBank
+
             adapterBank.notifyDataSetChanged()
 
             dialog.show()
