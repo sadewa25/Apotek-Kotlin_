@@ -24,7 +24,6 @@ class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
     override fun getDataBank(dataItemsBank: List<ResultItem>) {
         if (dataItemsBank!=null){
             dataBank?.addAll(dataItemsBank)
-            adapterBank = AdapterBank(context!!,dataBank)
         }
     }
 
@@ -59,6 +58,7 @@ class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
 
         dataRekening = arrayListOf()
         dataBank = arrayListOf()
+
         adapterBank = AdapterBank(context!!,dataBank)
 
         principal_btn.setOnClickListener {
@@ -76,7 +76,7 @@ class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
             presenter.getBank()
 
             val spinner = mDialogView.find<Spinner>(R.id.dialog_bank)
-
+            adapterBank = AdapterBank(context!!,dataBank)
             spinner.adapter = adapterBank
             adapterBank.notifyDataSetChanged()
 
