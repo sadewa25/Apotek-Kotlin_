@@ -46,6 +46,7 @@ class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
     private lateinit var homePresenter: HomePresenter
 
     private var dataRekening:ArrayList<ResultItem?>? = null
+    private lateinit var adapterRekening: AdapterBank
 
     private var dataBank:MutableList<ResultItem?>? = null
     private lateinit var adapterBank: AdapterBank
@@ -60,11 +61,14 @@ class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
         dataRekening = arrayListOf()
         dataBank = mutableListOf()
 
+        adapterRekening = AdapterBank(context!!,dataRekening)
+        principal_list_rekening.adapter = adapterRekening
+
         principal_btn.setOnClickListener {
             presenter.insertPrincipal(ResultItem(
                 name = principal_nama.text.toString(),
                 address = principal_address.text.toString(),
-                phone = principal_phone.text.toString() ))
+                phone = principal_phone.text.toString()))
         }
 
         principal_btn_rekening.setOnClickListener {
@@ -82,7 +86,13 @@ class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
 
             (mDialogView.find<Button>(R.id.btn_submit)).setOnClickListener {
                 val modelBank = spinner.selectedItem as ResultItem
-                toast("${modelBank.idBank}")
+
+                dataRekening!!.add(ResultItem(
+                    idBank = modelBank.idBank,
+                    noRekening = noRekening.text.toString(),
+                    pemilik_rekening = namaRekening.text.toString()
+                ))
+                adapterRekening.notifyDataSetChanged()
             }
 
 
