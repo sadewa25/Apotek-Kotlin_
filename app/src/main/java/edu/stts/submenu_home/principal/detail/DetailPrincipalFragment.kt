@@ -1,6 +1,5 @@
 package edu.stts.submenu_home.principal.detail
 
-
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -22,9 +21,8 @@ import org.jetbrains.anko.support.v4.toast
 class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
 
     override fun getDataBank(dataItemsBank: List<ResultItem>){
-        if (dataItemsBank!=null){
-            dataBank!!.addAll(dataItemsBank)
-        }
+        dataBank!!.addAll(dataItemsBank)
+        adapterBank.notifyDataSetChanged()
     }
 
     override fun showMessage(message: Boolean?) {
@@ -46,7 +44,7 @@ class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
 
     private var dataRekening:ArrayList<ResultItem?>? = null
 
-    private var dataBank:ArrayList<ResultItem?>? = null
+    private var dataBank:MutableList<ResultItem?>? = null
     private lateinit var adapterBank: AdapterBank
     private lateinit var mDialogView:View
 
@@ -57,9 +55,8 @@ class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
         homePresenter = HomePresenter()
 
         dataRekening = arrayListOf()
-        /*dataBank = arrayListOf()
+        dataBank = mutableListOf()
 
-        adapterBank = AdapterBank(context!!,dataBank)*/
         principal_btn.setOnClickListener {
             presenter.insertPrincipal(ResultItem(
                 name = principal_nama.text.toString(),
@@ -71,18 +68,12 @@ class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
             val dialog = AlertDialog.Builder(context!!)
             mDialogView = LayoutInflater.from(context).inflate(R.layout.item_dialog_principal_bank, null)
             dialog.setView(mDialogView)
-
             val spinner = mDialogView.find<Spinner>(R.id.dialog_bank)
 
-            dataBank = arrayListOf()
             adapterBank = AdapterBank(context!!,dataBank)
             spinner.adapter = adapterBank
 
             presenter.getBank()
-            adapterBank = AdapterBank(context!!,dataBank)
-            spinner.adapter = adapterBank
-
-            adapterBank.notifyDataSetChanged()
 
             dialog.show()
         }

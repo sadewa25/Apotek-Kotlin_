@@ -12,7 +12,6 @@ import edu.stts.adapter.AdapterKota
 
 import edu.stts.apotek_kotlin.R
 import edu.stts.apotek_kotlin.client.APIResponse
-import edu.stts.apotek_kotlin.menu.KeranjangFragment
 import edu.stts.apotek_kotlin.menu.masters.MastersFragment
 import edu.stts.apotek_kotlin.model.ResultItem
 import edu.stts.ui.HomePresenter

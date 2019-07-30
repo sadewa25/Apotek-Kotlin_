@@ -9,7 +9,7 @@ import android.widget.TextView
 import edu.stts.apotek_kotlin.R
 import edu.stts.apotek_kotlin.model.ResultItem
 
-class AdapterBank (val context: Context, val dataItems: ArrayList<ResultItem?>?): BaseAdapter() {
+class AdapterBank(val context: Context, val dataItems: List<ResultItem?>?): BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         var views = convertView
