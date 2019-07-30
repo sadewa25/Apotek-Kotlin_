@@ -131,7 +131,7 @@
                 android:layout_height="wrap_content"/>
 
         <Button
-                android:text="TAMBAH REKENING"
+                android:text="TAMBAH PRINCIPAL"
                 android:id="@+id/supplier_principal_btn"
                 android:background="@color/colorPrimaryDark"
                 android:textColor="@android:color/white"

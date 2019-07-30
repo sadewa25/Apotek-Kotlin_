@@ -66,9 +66,12 @@ class DetailSupplierFragment : Fragment(), DetailSupplierView{
     private lateinit var homePresenter: HomePresenter
     private lateinit var adapterBank:AdapterBank
     private var dataBank: ArrayList<ResultItem?>? = null
-
+    /*Principal*/
     private var dataPrincipal:ArrayList<ResultItem?>? = null
     private lateinit var adapterPrincipal:AdapterBank
+    private var dataListPrincipal:ArrayList<ResultItem?>? = null
+    private lateinit var adapterListPrincipal:AdapterBank
+    /*END*/
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -99,6 +102,10 @@ class DetailSupplierFragment : Fragment(), DetailSupplierView{
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        dataListPrincipal = arrayListOf()
+        adapterListPrincipal = AdapterBank(context!!,dataListPrincipal)
+        supplier_list_principal.adapter = adapterListPrincipal
 
         supplier_btn.setOnClickListener {
             val modelKota = supplier_kota.selectedItem as ResultItem
@@ -135,13 +142,17 @@ class DetailSupplierFragment : Fragment(), DetailSupplierView{
             /*END*/
 
             (mDialogView.find<Button>(R.id.btn_submit)).setOnClickListener {
-                val modelBank = spinner.selectedItem as ResultItem
-
+                val modelPrincipal = spinner.selectedItem as ResultItem
+                dataListPrincipal!!.add(
+                    ResultItem(
+                    id_principal = modelPrincipal.id_principal
+                ))
+                adapterListPrincipal.notifyDataSetChanged()
                 dialog.dismiss()
             }
             dialog.show()
-
         }
+
 
     }
 
