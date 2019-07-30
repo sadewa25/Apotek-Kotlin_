@@ -145,7 +145,7 @@ class DetailSupplierFragment : Fragment(), DetailSupplierView{
                 val modelPrincipal = spinner.selectedItem as ResultItem
                 dataListPrincipal!!.add(
                     ResultItem(
-                    id_principal = modelPrincipal.id_principal
+                    name = modelPrincipal.name
                 ))
                 adapterListPrincipal.notifyDataSetChanged()
                 dialog.dismiss()
