@@ -75,7 +75,7 @@ class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
 
             presenter.getBank()
 
-            val spinner = mDialogView.find<Spinner>(R.id.dialog_rekening)
+            val spinner = mDialogView.find<Spinner>(R.id.dialog_bank)
             adapterBank = AdapterBank(context!!,dataBank)
             spinner.adapter = adapterBank
 
