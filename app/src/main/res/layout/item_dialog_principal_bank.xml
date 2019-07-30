@@ -9,6 +9,7 @@
     <Spinner
             android:layout_width="match_parent"
             android:id="@+id/dialog_bank"
+            android:padding="@dimen/margin_supersmall"
             android:layout_height="wrap_content"/>
 
     <EditText
