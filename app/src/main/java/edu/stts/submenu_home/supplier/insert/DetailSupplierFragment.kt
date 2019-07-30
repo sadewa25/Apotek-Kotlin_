@@ -12,6 +12,7 @@ import android.widget.Spinner
 import androidx.appcompat.app.AlertDialog
 import edu.stts.adapter.AdapterBank
 import edu.stts.adapter.AdapterKota
+import edu.stts.adapter.AdapterRekening
 
 import edu.stts.apotek_kotlin.R
 import edu.stts.apotek_kotlin.client.APIResponse
@@ -23,6 +24,11 @@ import org.jetbrains.anko.find
 import org.jetbrains.anko.support.v4.toast
 
 class DetailSupplierFragment : Fragment(), DetailSupplierView{
+
+    override fun getDataRekening(dataItemsRekening: List<ResultItem>) {
+        dataRekening?.addAll(dataItemsRekening)
+        adapterRekening.notifyDataSetChanged()
+    }
 
     override fun getDataPrincipal(dataItemsPrincipal: List<ResultItem>) {
         dataPrincipal!!.addAll(dataItemsPrincipal)
@@ -72,6 +78,12 @@ class DetailSupplierFragment : Fragment(), DetailSupplierView{
     private var dataListPrincipal:ArrayList<ResultItem?>? = null
     private lateinit var adapterListPrincipal:AdapterBank
     /*END*/
+    /*Rekening*/
+    private var dataRekening:ArrayList<ResultItem?>? = null
+    private lateinit var adapterRekening:AdapterBank
+    private var dataListRekening:ArrayList<ResultItem?>? = null
+    private lateinit var adapterListRekening:AdapterRekening
+    /*END*/
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -107,6 +119,10 @@ class DetailSupplierFragment : Fragment(), DetailSupplierView{
         adapterListPrincipal = AdapterBank(context!!,dataListPrincipal)
         supplier_list_principal.adapter = adapterListPrincipal
 
+        dataListRekening = arrayListOf()
+        adapterListRekening = AdapterRekening(context!!,dataListRekening)
+        supplier_list_rekening.adapter = adapterListRekening
+
         supplier_btn.setOnClickListener {
             val modelKota = supplier_kota.selectedItem as ResultItem
             val modelBank = supplier_bank.selectedItem as ResultItem
@@ -121,6 +137,35 @@ class DetailSupplierFragment : Fragment(), DetailSupplierView{
                 idBank = modelBank.idBank
 
             ))
+        }
+
+        supplier_rekening_btn.setOnClickListener {
+            val builder = AlertDialog.Builder(context!!)
+            val mDialogView = LayoutInflater.from(context).inflate(R.layout.item_dialog_principal_bank, null)
+            builder.setView(mDialogView)
+            val dialog = builder.create()
+            val spinner = mDialogView.find<Spinner>(R.id.dialog_bank)
+
+            dataRekening = arrayListOf()
+            adapterRekening = AdapterBank(context!!,dataRekening)
+            spinner.adapter = adapterRekening
+            presenter.getDataRekening()
+            val noRekening = mDialogView.find<EditText>(R.id.dialog_rekening)
+            val namaRekening = mDialogView.find<EditText>(R.id.dialog_namarekening)
+
+            (mDialogView.find<Button>(R.id.btn_submit)).setOnClickListener {
+                val modelBank = spinner.selectedItem as ResultItem
+
+                dataListRekening!!.add(ResultItem(
+                    idBank = modelBank.idBank,
+                    noRekening = noRekening.text.toString(),
+                    pemilik_rekening = namaRekening.text.toString()
+                ))
+                adapterListRekening.notifyDataSetChanged()
+
+                dialog.dismiss()
+            }
+            dialog.show()
         }
 
         supplier_principal_btn.setOnClickListener {
@@ -152,7 +197,6 @@ class DetailSupplierFragment : Fragment(), DetailSupplierView{
             }
             dialog.show()
         }
-
 
     }
 

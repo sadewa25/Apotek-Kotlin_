@@ -6,5 +6,6 @@ interface DetailSupplierView {
     fun getDataKota(dataItemsKota:List<ResultItem>)
     fun getDataBank(dataItemsBank:List<ResultItem>)
     fun getDataPrincipal(dataItemsPrincipal:List<ResultItem>)
+    fun getDataRekening(dataItemsRekening:List<ResultItem>)
     fun showToast(message: Boolean?)
 }

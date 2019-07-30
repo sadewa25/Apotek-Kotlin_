@@ -70,5 +70,19 @@ class DetailSupplierPresenter(val context: Context, val client:APIClient, val vi
         })
     }
 
+    fun getDataRekening(){
+        client.getDataBank().enqueue(object : Callback<ResponseJSON>{
+            override fun onFailure(call: Call<ResponseJSON>, t: Throwable) {
+                context?.toast("Error Koneksi : ${t.message}")
+            }
+
+            override fun onResponse(call: Call<ResponseJSON>, response: Response<ResponseJSON>) {
+                if (response.body() != null){
+                    view.getDataRekening(response.body()!!.data?.result as ArrayList<ResultItem>)
+                }
+            }
+        })
+    }
+
 
 }
