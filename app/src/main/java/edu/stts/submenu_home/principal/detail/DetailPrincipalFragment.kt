@@ -68,7 +68,7 @@ class DetailPrincipalFragment : Fragment(),DetailPrincipalView {
                 phone = principal_phone.text.toString() ))
         }
 
-        principal_list_rekening.setOnClickListener {
+        principal_btn_rekening.setOnClickListener {
             val dialog = AlertDialog.Builder(context!!)
             mDialogView = LayoutInflater.from(context).inflate(R.layout.item_dialog_principal_bank, null)
             dialog.setView(mDialogView)
