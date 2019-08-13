@@ -5,7 +5,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import edu.stts.apotek_kotlin.R
 import edu.stts.apotek_kotlin.menu.masters.MastersFragment
-import edu.stts.apotek_kotlin.menu.KeranjangFragment
+import edu.stts.apotek_kotlin.menu.keranjang.KeranjangFragment
 import edu.stts.apotek_kotlin.menu.HomeFragFragment
 import edu.stts.apotek_kotlin.menu.ProfileFragment
 
@@ -18,7 +18,8 @@ class HomeActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_dashboard -> {
-                presenter.changeFragment(supportFragmentManager,KeranjangFragment(),R.id.frame_main)
+                presenter.changeFragment(supportFragmentManager,
+                    KeranjangFragment(),R.id.frame_main)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {

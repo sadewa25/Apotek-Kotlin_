@@ -9,10 +9,8 @@ import android.view.ViewGroup
 
 import edu.stts.apotek_kotlin.R
 import edu.stts.apotek_kotlin.client.APIResponse
-import edu.stts.apotek_kotlin.menu.KeranjangFragment
 import edu.stts.apotek_kotlin.menu.masters.MastersFragment
 import edu.stts.apotek_kotlin.model.ResultItem
-import edu.stts.submenu_home.kemasan.KemasanFragment
 import edu.stts.ui.HomePresenter
 import kotlinx.android.synthetic.main.fragment_detail_kemasan.*
 import org.jetbrains.anko.support.v4.toast
