@@ -23,7 +23,6 @@ class KeranjangFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_keranjang, container, false)
     }
 
-
     private lateinit var adapter:KeranjangAdapter
     private var dataItems:ArrayList<ResultItem?>? = null
 
@@ -31,10 +30,16 @@ class KeranjangFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         dataItems = arrayListOf()
+        for(i in 0 until 50){
+            dataItems?.add(ResultItem())
+        }
         adapter = KeranjangAdapter(context,dataItems){}
 
         recyler.layoutManager = LinearLayoutManager(context)
         recyler.adapter = adapter
+
+
+        adapter.notifyDataSetChanged()
 
     }
 

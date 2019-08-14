@@ -23,6 +23,7 @@ class KeranjangAdapter (
 
     override fun onBindViewHolder(holder: KeranjangAdapter.itemHolder, position: Int) {
         if (context != null) {
+            holder.setIsRecyclable(false)
             holder.bind(context,dataItems!!.get(position),listener)
         }
     }
